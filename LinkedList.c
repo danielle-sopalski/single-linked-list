@@ -38,7 +38,7 @@ bool listMemberExistsAtIndex(LinkedList *list, uint index) {
     return true;
 }
 
-ListNode *getListMemberAtIndex(LinkedList *list, uint index) {
+ListNode *getListNodeAtIndex(LinkedList *list, uint index) {
     int currentIndex = 0;
     ListNode *listMember = list->firstMember;
     while(currentIndex < index && listMember->next) {
@@ -50,37 +50,40 @@ ListNode *getListMemberAtIndex(LinkedList *list, uint index) {
 }
 
 int getListValueAtIndex(LinkedList *list, uint index) {
-    return getListMemberAtIndex(list, index)->value;
+    return getListNodeAtIndex(list, index)->value;
 }
 
 void setListValueAtIndex(LinkedList *list, uint index, int value) {
-    if(listMemberExistsAtIndex(list, index)) getListMemberAtIndex(list, index)->value = value;
+    if(listMemberExistsAtIndex(list, index)) getListNodeAtIndex(list, index)->value = value;
 }
 
 void insertListValueAtIndex(LinkedList *list, uint index, int value) {
-    ListNode *currentMemberAtIndex = getListMemberAtIndex(list, index);
+    ListNode *currentMemberAtIndex = getListNodeAtIndex(list, index);
 
     ListNode *newMemberAtIndex = malloc(sizeof(ListNode));
     newMemberAtIndex->value = value;
     newMemberAtIndex->next = currentMemberAtIndex;
 
     if(index > 0) {
-        ListNode *memberJustBeforeIndex = getListMemberAtIndex(list, index - 1);
+        ListNode *memberJustBeforeIndex = getListNodeAtIndex(list, index - 1);
         memberJustBeforeIndex->next = newMemberAtIndex;
     } else {
         list->firstMember = newMemberAtIndex;
     }
 }
 
-// TODO partially implemented
 void removeListValueAtIndex(LinkedList *list, uint index) {
     if(index > 0) {
-        ListNode *memberJustBeforeIndex = getListMemberAtIndex(list, index - 1);
-        if (memberJustBeforeIndex->next->next) {
-            ListNode *memberToFree = memberJustBeforeIndex->next;
-            memberJustBeforeIndex->next = memberJustBeforeIndex->next->next;
-            free(memberToFree);
-        }
+        ListNode *nodeJustBeforeIndex = getListNodeAtIndex(list, index - 1);
+        ListNode *nodeToFree = nodeJustBeforeIndex->next;
+
+        nodeJustBeforeIndex->next = nodeJustBeforeIndex->next->next ? nodeJustBeforeIndex->next->next : NULL;
+
+        free(nodeToFree);
+    } else {
+        ListNode *newFirstNode = list->firstMember->next ? list->firstMember->next : NULL;
+        free(list->firstMember);
+        list->firstMember = newFirstNode;
     }
 }
 

@@ -9,9 +9,6 @@ int main() {
     appendListValue(&foo, 3);
     appendListValue(&foo, 5);
 
-    getListMemberAtIndex(&foo, 0);
-    getListMemberAtIndex(&foo, 2);
-
     printf("List contents: ");
     printList(&foo);
 

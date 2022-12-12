@@ -22,7 +22,7 @@ ListNode *getLastListMember(LinkedList *list);
 
 bool listMemberExistsAtIndex(LinkedList *list, uint index);
 
-ListNode *getListMemberAtIndex(LinkedList *list, uint index);
+ListNode *getListNodeAtIndex(LinkedList *list, uint index);
 
 int getListValueAtIndex(LinkedList *list, uint index);
 
