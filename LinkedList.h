@@ -16,7 +16,7 @@ typedef struct LinkedList_t {
 //    int length; // TODO use this
 } LinkedList;
 
-LinkedList *newList();
+LinkedList newList();
 
 void freeList(LinkedList *list);
 

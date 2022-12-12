@@ -4,9 +4,9 @@
 #include <stdlib.h>
 #include <printf.h>
 
-LinkedList *newList() {
-    LinkedList *newList = malloc(sizeof(LinkedList));
-    newList->firstMember = NULL;
+LinkedList newList() {
+    LinkedList newList;
+    newList.firstMember = NULL;
     return newList;
 }
 

@@ -2,29 +2,29 @@
 #include "LinkedList.h"
 
 int main() {
-    LinkedList *foo = newList();
-    appendListValue(foo, 1);
-    appendListValue(foo, 3);
-    appendListValue(foo, 5);
-    appendListValue(foo, 7);
+    LinkedList foo = newList();
+    appendListValue(&foo, 1);
+    appendListValue(&foo, 3);
+    appendListValue(&foo, 5);
+    appendListValue(&foo, 7);
 
-    LinkedList *bar = newList();
-    appendListValue(bar, 2);
-    appendListValue(bar, 4);
-    appendListValue(bar, 6);
-    appendListValue(bar, 8);
+    LinkedList bar = newList();
+    appendListValue(&bar, 2);
+    appendListValue(&bar, 4);
+    appendListValue(&bar, 6);
+    appendListValue(&bar, 8);
 
     printf("List foo contents: ");
-    printList(foo);
+    printList(&foo);
 
     printf("\nList bar contents: ");
-    printList(bar);
+    printList(&bar);
 
-    concatList(foo, bar);
+    concatList(&foo, &bar);
     printf("\nConcatenated list contents: ");
-    printList(foo);
+    printList(&foo);
 
-    freeList(foo);
+    freeList(&foo);
 
     return 0;
 }
