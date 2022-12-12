@@ -4,6 +4,25 @@
 #include <stdlib.h>
 #include <printf.h>
 
+LinkedList *newList() {
+    LinkedList *newList = malloc(sizeof(LinkedList));
+    newList->firstMember = NULL;
+    return newList;
+}
+
+void freeList(LinkedList *list) {
+    if(list->firstMember) {
+        ListNode *currentNode = list->firstMember;
+        do {
+            ListNode *nextNode = currentNode->next;
+            free(currentNode);
+            currentNode = nextNode;
+        } while(currentNode);
+    }
+
+    free(list);
+}
+
 int getListLength(LinkedList *list) {
     if(!list->firstMember) return 0;
     else {

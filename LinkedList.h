@@ -16,6 +16,10 @@ typedef struct LinkedList_t {
 //    int length; // TODO use this
 } LinkedList;
 
+LinkedList *newList();
+
+void freeList(LinkedList *list);
+
 int getListLength(LinkedList *list);
 
 ListNode *getLastListMember(LinkedList *list);
