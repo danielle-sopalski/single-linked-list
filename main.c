@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include "SingleLinkedIntList.h"
+#include "LinkedList.h"
 
 int main() {
-    struct SingleLinkedIntList foo;
+    LinkedList foo;
     foo.firstMember = NULL;
 
     appendListValue(&foo, 1);
