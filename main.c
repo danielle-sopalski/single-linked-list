@@ -12,6 +12,8 @@ int main() {
     getListMemberAtIndex(&foo, 0);
     getListMemberAtIndex(&foo, 2);
 
-    printf("Hello, World!\n");
+    printf("List contents: ");
+    printList(&foo);
+
     return 0;
 }

@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <sys/types.h>
 #include <stdlib.h>
+#include <printf.h>
 
 int getListLength(LinkedList *list) {
     if(!list->firstMember) return 0;
@@ -90,4 +91,18 @@ void appendListValue(LinkedList *list, int value) {
 
     if(list->firstMember) getLastListMember(list)->next = newMember;
     else list->firstMember = newMember;
+}
+
+void printList(LinkedList *list) {
+    printf("[");
+    if(list->firstMember) {
+        ListNode *listNode = list->firstMember;
+        printf("%i", listNode->value);
+        while(listNode->next) {
+            printf(", ");
+            listNode = listNode->next;
+            printf("%i", listNode->value);
+        }
+    }
+    printf("]");
 }

@@ -34,4 +34,6 @@ void removeListValueAtIndex(LinkedList *list, uint index);
 
 void appendListValue(LinkedList *list, int value);
 
+void printList(LinkedList *list);
+
 #endif
