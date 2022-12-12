@@ -115,6 +115,15 @@ void appendListValue(LinkedList *list, int value) {
     else list->firstMember = newMember;
 }
 
+void concatList(LinkedList *list1, LinkedList *list2) {
+    ListNode *currentNode = list2->firstMember;
+    do {
+        // TODO methinks the list doth iterate too much
+        appendListValue(list1, currentNode->value);
+        currentNode = currentNode->next;
+    } while(currentNode);
+}
+
 void printList(LinkedList *list) {
     printf("[");
     if(list->firstMember) {

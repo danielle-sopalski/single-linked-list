@@ -20,6 +20,10 @@ int main() {
     printf("\nList bar contents: ");
     printList(bar);
 
+    concatList(foo, bar);
+    printf("\nConcatenated list contents: ");
+    printList(foo);
+
     freeList(foo);
 
     return 0;

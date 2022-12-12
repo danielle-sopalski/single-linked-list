@@ -38,6 +38,9 @@ void removeListValueAtIndex(LinkedList *list, uint index);
 
 void appendListValue(LinkedList *list, int value);
 
+// Append all values from list2 to the end of list1
+void concatList(LinkedList *list1, LinkedList *list2);
+
 void printList(LinkedList *list);
 
 #endif
